@@ -18,4 +18,9 @@ class Pegawai extends Model
     {
         return $this->hasOne(Pekerjaan::class);
     }
+
+    public function pekerjaan()
+    {
+        return $this->belongsTo(Pekerjaan::class, 'pekerjaan_id');
+    }
 }
