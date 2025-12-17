@@ -6,10 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pegawai extends Model
 {
-    protected $table = 'pegawai';
+    protected $table = 'sedayuHS_543905_pegawai';
+
+    protected $dates = ['deleted_at'];
+
+    protected $fillable = [
+        'pekerjaan_id',
+        'nama',
+        'email',
+        'gender',
+        'is_active'
+    ];
 
     public function pegawai()
     {
         return $this->hasOne(Pekerjaan::class);
+    }
+
+    public function pekerjaan()
+    {
+        return $this->belongsTo(Pekerjaan::class, 'pekerjaan_id');
     }
 }
